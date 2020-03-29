@@ -1,3 +1,6 @@
 [submodule "module/aether"]
 	path = module/aether
 	url = git@github.com:alesegdia/aether.git
+[submodule "module/secs"]
+	path = module/secs
+	url = git@github.com:alesegdia/secs.git
