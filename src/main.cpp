@@ -47,7 +47,7 @@ public:
 	{
 		aether::graphics::clear(0, 0, 0);
 		//m_tex.draw(0, 0);
-		m_animData.currentFrame->texture->draw(0, 0);
+		m_animData.currentFrame->texture->draw(0, 0, 0.5f, 0.5f);
 	}
 
 private:
