@@ -21,19 +21,9 @@ public:
 	// Inherited via IScreen
 	virtual void show() override
 	{
-		m_tex.load("assets/Enemy/spaceship_enemy_red.png");
-		m_enemyFrames = GetFrames("assets/Enemy/Enemy_animation/", 1, 8);
-
-		std::vector<const aether::graphics::TextureRegion*> v;
-		for (auto& tr : m_enemyFrames)
-		{
-			v.push_back(&tr);
-		}
-
-		m_anim.addFrames(v);
-		m_animData.reset();
+		auto enemyFrames = GetFrames("assets/Enemy/Enemy_animation/", 1, 8);
+		m_anim.addFrames(enemyFrames);
 		m_anim.reset(m_animData);
-		m_anim.updateData(m_animData);
 	}
 	virtual void hide() override
 	{
@@ -46,15 +36,12 @@ public:
 	virtual void render() override
 	{
 		aether::graphics::clear(0, 0, 0);
-		//m_tex.draw(0, 0);
-		m_animData.currentFrame->texture->draw(0, 0, 0.5f, 0.5f);
+		m_animData.currentFrame->texture.draw(0, 0, 0.5f, 0.5f);
 	}
 
 private:
-	aether::graphics::Texture m_tex;
 	aether::graphics::Animation m_anim;
 	aether::graphics::AnimationData m_animData;
-	std::vector<aether::graphics::TextureRegion> m_enemyFrames;
 
 };
 
