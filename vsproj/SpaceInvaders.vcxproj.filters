@@ -7,6 +7,9 @@
     <Filter Include="game">
       <UniqueIdentifier>{ce059925-5413-4704-a885-475148ea078c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="secs">
+      <UniqueIdentifier>{a7d1e1ae-0709-4f70-bf7e-1505c045e74a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -95,6 +98,45 @@
     </ClCompile>
     <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_texture.cpp">
       <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\ECSWorld.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\Systems.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\componentflagsmanager.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\componentmanager.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\componentstorage.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\componenttraits.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\eidstorage.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\entity.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\entityobserver.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\entityprocessor.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\entitysystem.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\system.cpp">
+      <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp">
+      <Filter>secs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +249,66 @@
       <Filter>aether</Filter>
     </ClInclude>
     <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_locator.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\Components.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\ECSWorld.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\EntityFactory.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\Systems.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\bits.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\componentflagsmanager.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\componentmanager.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\componentstorage.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\componenttraits.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\config.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\eidstorage.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\engine.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\entity.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\entityobserver.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\entityprocessor.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\entitysystem.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\secs.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\system.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\secs\src\lib\secs\systemmanager.h">
+      <Filter>secs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_texure.h">
       <Filter>aether</Filter>
     </ClInclude>
   </ItemGroup>

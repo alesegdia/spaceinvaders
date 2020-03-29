@@ -47,6 +47,19 @@
     <ClCompile Include="..\module\aether\src\aether\scene\gridnode.cpp" />
     <ClCompile Include="..\module\aether\src\aether\scene\scene.cpp" />
     <ClCompile Include="..\module\aether\src\aether\scene\texturenode.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\componentflagsmanager.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\componentmanager.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\componentstorage.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\componenttraits.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\eidstorage.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\entity.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\entityobserver.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\entityprocessor.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\entitysystem.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\system.cpp" />
+    <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp" />
+    <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
+    <ClCompile Include="..\src\ecs\Systems.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +86,7 @@
     <ClInclude Include="..\module\aether\src\aether\graphics\graphics.h" />
     <ClInclude Include="..\module\aether\src\aether\graphics\scroll.h" />
     <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_locator.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_texure.h" />
     <ClInclude Include="..\module\aether\src\aether\graphics\spritesheet.h" />
     <ClInclude Include="..\module\aether\src\aether\graphics\texture.h" />
     <ClInclude Include="..\module\aether\src\aether\json11.hpp" />
@@ -87,6 +101,25 @@
     <ClInclude Include="..\module\aether\src\aether\scene\gridnode.h" />
     <ClInclude Include="..\module\aether\src\aether\scene\scene.h" />
     <ClInclude Include="..\module\aether\src\aether\scene\texturenode.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\bits.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\componentflagsmanager.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\componentmanager.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\componentstorage.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\componenttraits.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\config.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\eidstorage.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\engine.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\entity.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\entityobserver.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\entityprocessor.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\entitysystem.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\secs.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\system.h" />
+    <ClInclude Include="..\module\secs\src\lib\secs\systemmanager.h" />
+    <ClInclude Include="..\src\ecs\Components.h" />
+    <ClInclude Include="..\src\ecs\ECSWorld.h" />
+    <ClInclude Include="..\src\ecs\EntityFactory.h" />
+    <ClInclude Include="..\src\ecs\Systems.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\module\aether\src\aether\json11.pc.in" />
@@ -144,7 +177,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/lib/x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -152,7 +185,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/lib/x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -168,7 +201,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -197,7 +230,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
