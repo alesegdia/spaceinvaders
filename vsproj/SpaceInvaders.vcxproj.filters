@@ -54,15 +54,6 @@
     <ClCompile Include="..\module\aether\src\aether\graphics\asepriteanimloader.cpp">
       <Filter>aether</Filter>
     </ClCompile>
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_font.cpp">
-      <Filter>aether</Filter>
-    </ClCompile>
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_graphics.cpp">
-      <Filter>aether</Filter>
-    </ClCompile>
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_texture.cpp">
-      <Filter>aether</Filter>
-    </ClCompile>
     <ClCompile Include="..\module\aether\src\aether\graphics\scroll.cpp">
       <Filter>aether</Filter>
     </ClCompile>
@@ -93,7 +84,16 @@
     <ClCompile Include="..\module\aether\src\aether\core\input.cpp">
       <Filter>aether</Filter>
     </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_font.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_graphics.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
     <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_locator.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_texture.cpp">
       <Filter>aether</Filter>
     </ClCompile>
   </ItemGroup>

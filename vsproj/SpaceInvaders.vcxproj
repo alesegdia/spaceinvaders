@@ -34,11 +34,11 @@
     <ClCompile Include="..\module\aether\src\aether\debug\animationdebugger.cpp" />
     <ClCompile Include="..\module\aether\src\aether\graphics\animation.cpp" />
     <ClCompile Include="..\module\aether\src\aether\graphics\asepriteanimloader.cpp" />
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_font.cpp" />
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_graphics.cpp" />
-    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_texture.cpp" />
     <ClCompile Include="..\module\aether\src\aether\graphics\scroll.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_font.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_graphics.cpp" />
     <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_locator.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\sdl\sdl_texture.cpp" />
     <ClCompile Include="..\module\aether\src\aether\graphics\spritesheet.cpp" />
     <ClCompile Include="..\module\aether\src\aether\json11.cpp" />
     <ClCompile Include="..\module\aether\src\aether\math\rng.cpp" />
