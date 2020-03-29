@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="aether">
+      <UniqueIdentifier>{ff8a39df-e094-4ef5-ac43-d41108ba7049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{ce059925-5413-4704-a885-475148ea078c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\audio\sdl\sdl_sample.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\audio\sdl\sdl_stream.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\applicationbase.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\handle.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\handledresourcemanager.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\iinputprocessor.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\iscreen.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\resourcemanager.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\sdl\sdl_application.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\sdl\sdl_time.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\utility.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\debug\animationdebugger.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\animation.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\asepriteanimloader.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_font.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_graphics.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_texture.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\scroll.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\graphics\spritesheet.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\math\rng.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\math\tween.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\scene\animationnode.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\scene\gridnode.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\scene\scene.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\scene\texturenode.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\json11.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\aether\src\aether\core\input.cpp">
+      <Filter>aether</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\module\aether\src\aether\audio\playmode.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\audio\sample.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\audio\stream.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\applicationbase.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\handle.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\handledresourcemanager.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\iinputprocessor.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\input.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\iscreen.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\resourcemanager.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\sdl\sdl_application.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\sdl\sdl_keycode.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\time.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\core\utility.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\debug\animationdebugger.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\animation.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\asepriteanimloader.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\color.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\font.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\graphics.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\scroll.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\spritesheet.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\graphics\texture.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\math\matrix.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\math\rect.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\math\rng.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\math\tween.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\math\vec.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\resources\asepriteanimationloader.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\scene\animationnode.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\scene\gridnode.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\scene\scene.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\scene\texturenode.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\aether.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\json11.hpp">
+      <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\aether\src\aether\platform.h">
+      <Filter>aether</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\module\aether\src\aether\json11.pc.in">
+      <Filter>aether</Filter>
+    </None>
+  </ItemGroup>
+</Project>

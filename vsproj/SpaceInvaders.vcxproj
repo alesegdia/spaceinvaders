@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\module\aether\src\aether\audio\sdl\sdl_sample.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\audio\sdl\sdl_stream.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\applicationbase.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\handle.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\handledresourcemanager.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\iinputprocessor.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\input.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\iscreen.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\resourcemanager.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\sdl\sdl_application.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\sdl\sdl_time.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\core\utility.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\debug\animationdebugger.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\animation.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\asepriteanimloader.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_font.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_graphics.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\dummy\sdl_texture.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\scroll.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\graphics\spritesheet.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\json11.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\math\rng.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\math\tween.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\scene\animationnode.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\scene\gridnode.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\scene\scene.cpp" />
+    <ClCompile Include="..\module\aether\src\aether\scene\texturenode.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\module\aether\src\aether\aether.h" />
+    <ClInclude Include="..\module\aether\src\aether\audio\playmode.h" />
+    <ClInclude Include="..\module\aether\src\aether\audio\sample.h" />
+    <ClInclude Include="..\module\aether\src\aether\audio\stream.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\applicationbase.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\handle.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\handledresourcemanager.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\iinputprocessor.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\input.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\iscreen.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\resourcemanager.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\sdl\sdl_application.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\sdl\sdl_keycode.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\time.h" />
+    <ClInclude Include="..\module\aether\src\aether\core\utility.h" />
+    <ClInclude Include="..\module\aether\src\aether\debug\animationdebugger.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\animation.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\asepriteanimloader.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\color.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\font.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\graphics.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\scroll.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\spritesheet.h" />
+    <ClInclude Include="..\module\aether\src\aether\graphics\texture.h" />
+    <ClInclude Include="..\module\aether\src\aether\json11.hpp" />
+    <ClInclude Include="..\module\aether\src\aether\math\matrix.h" />
+    <ClInclude Include="..\module\aether\src\aether\math\rect.h" />
+    <ClInclude Include="..\module\aether\src\aether\math\rng.h" />
+    <ClInclude Include="..\module\aether\src\aether\math\tween.h" />
+    <ClInclude Include="..\module\aether\src\aether\math\vec.h" />
+    <ClInclude Include="..\module\aether\src\aether\platform.h" />
+    <ClInclude Include="..\module\aether\src\aether\resources\asepriteanimationloader.h" />
+    <ClInclude Include="..\module\aether\src\aether\scene\animationnode.h" />
+    <ClInclude Include="..\module\aether\src\aether\scene\gridnode.h" />
+    <ClInclude Include="..\module\aether\src\aether\scene\scene.h" />
+    <ClInclude Include="..\module\aether\src\aether\scene\texturenode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\module\aether\src\aether\json11.pc.in" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{6FCB0C91-A012-4478-BBCF-6D630ECEFB26}</ProjectGuid>
+    <RootNamespace>SpaceInvaders</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/lib/x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;AETHER_USE_SDL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

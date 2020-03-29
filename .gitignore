@@ -1,1 +1,4 @@
 /build/
+/vsproj/.vs
+/vsproj/Debug
+/vsproj/*.user
