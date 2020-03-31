@@ -1,6 +1,8 @@
 #include <aether/aether.h>
 #include <memory>
 
+#include "ecs/Systems.h"
+
 std::vector<aether::graphics::TextureRegion> GetFrames(std::string base, int from, int to)
 {
 	std::vector<aether::graphics::TextureRegion> frames;
@@ -34,10 +36,12 @@ public:
 	{
 		m_animData.timer += delta;
 		m_anim.updateData(m_animData);
+		m_stars.step(delta);
 	}
 	virtual void render() override
 	{
 		aether::graphics::clear(0, 0, 0);
+		m_stars.renderStep();
 		m_animData.currentFrame->texture.draw(0, 0, 0.5f, 0.5f);
 		m_textData.draw(10, 10);
 	}
@@ -47,6 +51,7 @@ private:
 	aether::graphics::AnimationData m_animData;
 	aether::graphics::Font m_font;
 	aether::graphics::TextData m_textData;
+	StarFieldSystem m_stars;
 
 };
 

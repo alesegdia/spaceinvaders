@@ -9,6 +9,7 @@ ECSWorld::ECSWorld()
 {
 	pushSystem(std::make_shared<RenderTextSystem>());
 	pushSystem(std::make_shared<RenderTextureSystem>());
+	pushSystem(std::make_shared<StarFieldSystem>());
 }
 
 secs::Entity ECSWorld::MakeEnemyShip(float x, float y)

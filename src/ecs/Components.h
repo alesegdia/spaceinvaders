@@ -3,23 +3,20 @@
 #include <aether/aether.h>
 #include <secs/secs.h>
 
+
 struct TransformComponent
 {
 	float x, y;
 };
 
-
 struct SpriteComponent
 {
-	aether::graphics::Texture texture;
+	aether::graphics::TextureRegion texture;
 };
 
 struct TextComponent
 {
 	std::string text;
+	aether::graphics::Color color;
 };
 
-struct GemComponent
-{
-	int tier = -1;
-};
