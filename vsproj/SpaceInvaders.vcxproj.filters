@@ -10,6 +10,9 @@
     <Filter Include="secs">
       <UniqueIdentifier>{a7d1e1ae-0709-4f70-bf7e-1505c045e74a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="hadron">
+      <UniqueIdentifier>{9b252ef9-4fa6-4a06-9e96-2d6657d22519}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -102,9 +105,6 @@
     <ClCompile Include="..\src\ecs\ECSWorld.cpp">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ecs\Systems.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
     <ClCompile Include="..\module\secs\src\lib\secs\componentflagsmanager.cpp">
       <Filter>secs</Filter>
     </ClCompile>
@@ -137,6 +137,63 @@
     </ClCompile>
     <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp">
       <Filter>secs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\RenderTextSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\AnimationSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\screens\GameplayScreen.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\broadphase\broadphase.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\broadphase\bruteforcebroadphase.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\narrowphase\aabbnarrowphase.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\narrowphase\narrowphase.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\aabb.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\body.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\ibodyvisitor.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\icollisionlistener.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\util.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\module\hadron\src\lib\hadron\vec.cpp">
+      <Filter>hadron</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\DieSystem.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\HealthSystem.cpp">
+      <Filter>game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,9 +314,6 @@
     <ClInclude Include="..\src\ecs\ECSWorld.h">
       <Filter>game</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ecs\EntityFactory.h">
-      <Filter>game</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ecs\Systems.h">
       <Filter>game</Filter>
     </ClInclude>
@@ -310,6 +364,69 @@
     </ClInclude>
     <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_texure.h">
       <Filter>aether</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\RenderTextSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\RenderTextureSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\StarsFieldSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\AnimationSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\screens\GameplayScreen.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\broadphase\broadphase.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\broadphase\bruteforcebroadphase.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\narrowphase\aabbnarrowphase.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\narrowphase\narrowphase.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\aabb.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\body.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\hadron.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\ibodyvisitor.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\icollisionlistener.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\util.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\vec.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\module\hadron\src\lib\hadron\world.h">
+      <Filter>hadron</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\HadronCollisionSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\DieSystem.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\HealthSystem.h">
+      <Filter>game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

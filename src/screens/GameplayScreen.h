@@ -1,5 +1,6 @@
 #include <aether/aether.h>
 
+#include "../ecs/ECSWorld.h"
 
 class GameplayScreen : public aether::core::IScreen
 {
@@ -15,10 +16,8 @@ public:
 	virtual void render() override;
 
 private:
-	aether::graphics::Animation m_anim;
-	aether::graphics::AnimationData m_animData;
 	aether::graphics::Font m_font;
 	aether::graphics::TextData m_textData;
-	StarFieldSystem m_stars;
+	ECSWorld m_ecsWorld;
 
 };

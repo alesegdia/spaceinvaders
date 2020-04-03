@@ -1,13 +1,24 @@
 #include "GameplayScreen.h"
 
+#include "../ecs/Systems.h"
 
 void GameplayScreen::show()
 {
 	m_font.load("assets/default.ttf", 64);
-	auto enemyFrames = GetFrames("assets/Enemy/Enemy_animation/", 1, 8);
-	m_anim.addFrames(enemyFrames);
-	m_anim.reset(m_animData);
 	m_textData = m_font.createTextTexture("Space Invaders", aether::graphics::Color(1.0f, 1.0f, 1.0f));
+	m_ecsWorld.pushSystem(std::make_shared<RenderTextSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<AnimationSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<StarFieldSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<RenderTextureSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<DieSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<HealthSystem>());
+
+	m_ecsWorld.MakeEnemyShip(0, 0);
+	m_ecsWorld.MakePlayerShip(0, 0);
+	m_ecsWorld.MakeBlueEffect(0, 0);
+	m_ecsWorld.MakeRedEffect(100, 100);
+	m_ecsWorld.MakeGalaxyEffect(200, 200);
+	m_ecsWorld.MakeText("Space Invaders", 0, 0);
 }
 
 void GameplayScreen::hide()
@@ -17,15 +28,11 @@ void GameplayScreen::hide()
 
 void GameplayScreen::update(uint64_t delta)
 {
-	m_animData.timer += delta;
-	m_anim.updateData(m_animData);
-	m_stars.step(delta);
+	m_ecsWorld.step(delta);
 }
 
 void GameplayScreen::render()
 {
 	aether::graphics::clear(0, 0, 0);
-	m_stars.renderStep();
-	m_animData.currentFrame->texture.draw(0, 0, 0.5f, 0.5f);
-	m_textData.draw(10, 10);
+	m_ecsWorld.render();
 }

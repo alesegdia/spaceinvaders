@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -47,6 +47,16 @@
     <ClCompile Include="..\module\aether\src\aether\scene\gridnode.cpp" />
     <ClCompile Include="..\module\aether\src\aether\scene\scene.cpp" />
     <ClCompile Include="..\module\aether\src\aether\scene\texturenode.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\aabb.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\body.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\broadphase\broadphase.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\broadphase\bruteforcebroadphase.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\ibodyvisitor.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\icollisionlistener.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\narrowphase\aabbnarrowphase.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\narrowphase\narrowphase.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\util.cpp" />
+    <ClCompile Include="..\module\hadron\src\lib\hadron\vec.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\componentflagsmanager.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\componentmanager.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\componentstorage.cpp" />
@@ -58,9 +68,17 @@
     <ClCompile Include="..\module\secs\src\lib\secs\entitysystem.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\system.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp" />
+    <ClCompile Include="..\src\ecs\AnimationSystem.cpp" />
+    <ClCompile Include="..\src\ecs\DieSystem.cpp" />
     <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
-    <ClCompile Include="..\src\ecs\Systems.cpp" />
+    <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp" />
+    <ClCompile Include="..\src\ecs\HealthSystem.cpp" />
+    <ClCompile Include="..\src\ecs\RenderTextSystem.cpp" />
+    <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp" />
+    <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp" />
+    <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\screens\GameplayScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\module\aether\src\aether\aether.h" />
@@ -101,6 +119,18 @@
     <ClInclude Include="..\module\aether\src\aether\scene\gridnode.h" />
     <ClInclude Include="..\module\aether\src\aether\scene\scene.h" />
     <ClInclude Include="..\module\aether\src\aether\scene\texturenode.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\aabb.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\body.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\broadphase\broadphase.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\broadphase\bruteforcebroadphase.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\hadron.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\ibodyvisitor.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\icollisionlistener.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\narrowphase\aabbnarrowphase.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\narrowphase\narrowphase.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\util.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\vec.h" />
+    <ClInclude Include="..\module\hadron\src\lib\hadron\world.h" />
     <ClInclude Include="..\module\secs\src\lib\secs\bits.h" />
     <ClInclude Include="..\module\secs\src\lib\secs\componentflagsmanager.h" />
     <ClInclude Include="..\module\secs\src\lib\secs\componentmanager.h" />
@@ -116,10 +146,18 @@
     <ClInclude Include="..\module\secs\src\lib\secs\secs.h" />
     <ClInclude Include="..\module\secs\src\lib\secs\system.h" />
     <ClInclude Include="..\module\secs\src\lib\secs\systemmanager.h" />
+    <ClInclude Include="..\src\ecs\AnimationSystem.h" />
     <ClInclude Include="..\src\ecs\Components.h" />
+    <ClInclude Include="..\src\ecs\DieSystem.h" />
     <ClInclude Include="..\src\ecs\ECSWorld.h" />
-    <ClInclude Include="..\src\ecs\EntityFactory.h" />
+    <ClInclude Include="..\src\ecs\HadronCollisionSystem.h" />
+    <ClInclude Include="..\src\ecs\HealthSystem.h" />
+    <ClInclude Include="..\src\ecs\RenderTextSystem.h" />
+    <ClInclude Include="..\src\ecs\RenderTextureSystem.h" />
+    <ClInclude Include="..\src\ecs\StarsFieldSystem.h" />
     <ClInclude Include="..\src\ecs\Systems.h" />
+    <ClInclude Include="..\src\Game.h" />
+    <ClInclude Include="..\src\screens\GameplayScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\module\aether\src\aether\json11.pc.in" />
@@ -177,7 +215,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(ProjectDir)/../module/hadron/src/lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/lib/x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -185,7 +223,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/../module/aether/module/rztl/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/include;$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/include;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/include;$(ProjectDir)/../module/aether/src/;$(ProjectDir)/../module/secs/src/lib;$(ProjectDir)/../module/hadron/src/lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/../module/aether/module/sdl/SDL2_image-2.0.5/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2_ttf-2.0.15/lib/x86;$(ProjectDir)/../module/aether/module/sdl/SDL2-2.0.10/lib/x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
