@@ -13,5 +13,9 @@ void AnimationSystem::process(double delta, const secs::Entity& e, AnimationComp
 	ac.animationData.timer += delta;
 	ac.animation->updateData(ac.animationData);
 	sc.texture = ac.animationData.currentFrame->texture;
+	if (ac.animationData.animationFinished && ac.destroyOnAnimationFinished && !hasComponent<DieComponent>(e))
+	{
+		processor()->addComponent<DieComponent>(e);
+	}
 }
 

@@ -210,6 +210,9 @@
     <ClCompile Include="..\src\ecs\ConfineInScreenSystem.cpp">
       <Filter>game\ecs</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ecs\DestroyOnExitScreen.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\module\aether\src\aether\audio\playmode.h">
@@ -453,6 +456,9 @@
       <Filter>game\ecs</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ecs\ConfineInScreenSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\DestroyOnExitScreen.h">
       <Filter>game\ecs</Filter>
     </ClInclude>
   </ItemGroup>

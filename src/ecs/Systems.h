@@ -11,3 +11,4 @@
 #include "PlayerInputSystem.h"
 #include "ShootingSystem.h"
 #include "ConfineInScreenSystem.h"
+#include "DestroyOnExitScreen.h"

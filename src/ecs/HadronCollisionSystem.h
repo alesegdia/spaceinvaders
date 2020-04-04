@@ -90,10 +90,18 @@ public:
         {
             auto& ship = component<ShipComponent>(out1);
             auto& bullet = component<BulletComponent>(out2);
-            if (ship.faction != bullet.faction)
+            if (ship.faction != bullet.faction && !hasComponent<DieComponent>(out2))
             {
                 component<HealthComponent>(out1).currentHealth -= bullet.power;
                 component<HealthComponent>(out2).currentHealth = 0;
+                if (ship.faction == Faction::Player)
+                {
+                    std::cout << "meh" << std::endl;
+                }
+                if (ship.faction == Faction::Enemy)
+                {
+                    std::cout << "zox" << std::endl;
+                }
             }
         }
     }

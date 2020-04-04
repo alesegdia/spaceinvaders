@@ -52,10 +52,10 @@ secs::Entity ECSWorld::MakeEnemyShip(float x, float y)
 	AddShip(e, Faction::Enemy, 10);
 	AddCollision(e, 50, 50, { 26, 20 });
 	component<TransformComponent>(e).rotation = 180.0f;
-	AddShoot(e, 0.5e6, [this](secs::Entity e) {
+	AddShoot(e, 2.0e6, [this](secs::Entity e) {
 		auto& tc = component<TransformComponent>(e);
-		MakeEnemyBullet(tc.position.x(), tc.position.y());
-	});
+		MakeEnemyBullet(32 + tc.position.x(), 70 + tc.position.y());
+	}, true);
 	return e;
 }
 
@@ -75,17 +75,17 @@ secs::Entity ECSWorld::MakePlayerShip(float x, float y)
 
 secs::Entity ECSWorld::MakeBlueEffect(float x, float y)
 {
-	return MakeAnimationEntity(m_blueFX, x, y, 0.5f);
+	return MakeAnimationEntity(m_blueFX, x, y, 0.5f, rand() % 360);
 }
 
 secs::Entity ECSWorld::MakeGalaxyEffect(float x, float y)
 {
-	return MakeAnimationEntity(m_galaxyFX, x, y, 0.5f);
+	return MakeAnimationEntity(m_galaxyFX, x, y, 0.5f, rand() % 360);
 }
 
 secs::Entity ECSWorld::MakeRedEffect(float x, float y)
 {
-	return MakeAnimationEntity(m_redFX, x, y, 0.5f);
+	return MakeAnimationEntity(m_redFX, x, y, 0.5f, rand() % 360);
 }
 
 secs::Entity ECSWorld::MakeText(const std::string& text, float x, float y)
@@ -101,7 +101,7 @@ secs::Entity ECSWorld::MakeText(const std::string& text, float x, float y)
 
 void ECSWorld::AddCollision(const secs::Entity& e, float w, float h, aether::math::Vec2f offset)
 {
-	assert(hasComponent<TransformComponent>(e));
+	//assert(hasComponent<TransformComponent>(e));
 	auto& tc = component<TransformComponent>(e);
 	auto& hcc = addComponent<HadronCollisionComponent>(e);
 	hcc.body = new hadron::Body(tc.position.x(), tc.position.y(), w, h);
@@ -127,15 +127,15 @@ void ECSWorld::AddTransform(const secs::Entity& e, float x, float y, float scale
 	tc.position = { x, y };
 	tc.scale = scale;
 	tc.rotation = rotation;
-	processor().forceApplyChanges();
+	//processor().forceApplyChanges();
 }
 
-secs::Entity ECSWorld::MakeAnimationEntity(std::shared_ptr<aether::graphics::Animation> anim, float x, float y, float scale)
+secs::Entity ECSWorld::MakeAnimationEntity(std::shared_ptr<aether::graphics::Animation> anim, float x, float y, float scale, float rotation)
 {
 	const auto& e = processor().addEntity();
 	addComponent<SpriteComponent>(e);
 	AddAnimation(e, anim);
-	AddTransform(e, x, y, scale);
+	AddTransform(e, x, y, scale, rotation);
 	return e;
 }
 
@@ -147,6 +147,10 @@ secs::Entity ECSWorld::MakePlayerBullet(float x, float y)
 	AddCollision(e, 6, 10, { 13.0f, 10.0f });
 	AddBullet(e, Faction::Player, 1);
 	addComponent<MovementComponent>(e).axis = { 0.0f, -5.0f };
+	addComponent<OnDeathActionComponent>(e).action = [this] (secs::Entity e) {
+		auto& tc = component<TransformComponent>(e);
+		MakeBlueEffect(tc.position.x() - 50, tc.position.y() - 50);
+	};
 	return e;
 }
 
@@ -156,8 +160,12 @@ secs::Entity ECSWorld::MakeEnemyBullet(float x, float y)
 	addComponent<SpriteComponent>(e).texture = m_enemyBullet;
 	AddTransform(e, x, y, 0.25f, 180.0f);
 	AddCollision(e, 6, 10, { 13.0f, 10.0f });
-	AddBullet(e, Faction::Player, 1);
-	addComponent<MovementComponent>(e).axis = { 0.0f, 1.0f };
+	AddBullet(e, Faction::Enemy, 1);
+	addComponent<MovementComponent>(e).axis = { 0.0f, 5.0f };
+	addComponent<OnDeathActionComponent>(e).action = [this](secs::Entity e) {
+		auto& tc = component<TransformComponent>(e);
+		MakeRedEffect(tc.position.x() - 50, tc.position.y() - 50);
+	};
 	return e;
 }
 
@@ -169,10 +177,11 @@ void ECSWorld::AddBullet(secs::Entity e, Faction faction, int power)
 	addComponent<HealthComponent>(e).maxHealth = 1;
 }
 
-void ECSWorld::AddShoot(secs::Entity e, float rate, std::function<void(secs::Entity)> cb)
+void ECSWorld::AddShoot(secs::Entity e, float rate, std::function<void(secs::Entity)> cb, bool shootRequested)
 {
 	auto& sc = addComponent<ShootComponent>(e);
 	sc.shootingRate = rate;
 	sc.nextShootAvailable = 0.0f;
 	sc.shootCallback = cb;
+	sc.shootRequested = shootRequested;
 }
