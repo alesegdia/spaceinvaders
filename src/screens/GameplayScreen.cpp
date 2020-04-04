@@ -22,6 +22,8 @@ void GameplayScreen::show()
 	m_ecsWorld.MakeBlueEffect(0, 0);
 	m_ecsWorld.MakeRedEffect(100, 100);
 	m_ecsWorld.MakeGalaxyEffect(200, 200);
+	m_ecsWorld.MakeEnemyBullet(200, 200);
+	m_ecsWorld.MakePlayerBullet(200, 200);
 	m_ecsWorld.MakeText("Space Invaders", 0, 0);
 }
 

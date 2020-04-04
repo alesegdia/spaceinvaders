@@ -8,12 +8,12 @@ namespace
 {
 
 	using FrameList = std::vector<aether::graphics::TextureRegion>;
-	FrameList GetFrames(std::string base, int from, int to)
+	FrameList GetFrames(std::string base, int from, int to, bool reverse = false)
 	{
 		std::vector<aether::graphics::TextureRegion> frames;
 		for (int i = from; i <= to; i++)
 		{
-			auto path = base + std::to_string(i) + ".png";
+			auto path = base + std::to_string(reverse ? to - i + from : i) + ".png";
 			aether::graphics::Texture t;
 			t.load(path.c_str());
 			frames.push_back({ t });
@@ -25,11 +25,21 @@ namespace
 
 ECSWorld::ECSWorld()
 {
-	m_enemyAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Enemy/Enemy_animation/", 1, 8), 1000);
-	m_playerAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Player/Animation/", 1, 8), 1000);
-	m_blueFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Blue/1_", 0, 16), 2000);
-	m_redFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Galaxy/galaxy_", 0, 16), 2000);
-	m_galaxyFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Red/1_", 0, 16), 2000);
+	auto shipAnimTime = 0.05e6;
+	auto fxAnimTime = 0.05e6;
+
+	m_enemyAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Enemy/Enemy_animation/", 1, 8), shipAnimTime);
+	m_playerAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Player/Animation/", 1, 8), shipAnimTime);
+
+	m_blueFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Blue/1_", 0, 16), fxAnimTime);
+	m_blueFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
+
+	m_redFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Galaxy/galaxy_", 0, 16), fxAnimTime);
+	m_redFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
+
+	m_galaxyFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Red/1_", 0, 16), fxAnimTime);
+	m_galaxyFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
+	
 	m_normalFont.load("assets/default.ttf", 32);
 }
 
@@ -101,11 +111,12 @@ void ECSWorld::AddAnimation(const secs::Entity& e, std::shared_ptr<aether::graph
 	ac.animation = anim;
 }
 
-void ECSWorld::AddTransform(const secs::Entity& e, float x, float y, float scale)
+void ECSWorld::AddTransform(const secs::Entity& e, float x, float y, float scale, float rotation)
 {
 	auto& tc = addComponent<TransformComponent>(e);
 	tc.position = { x, y };
 	tc.scale = scale;
+	tc.rotation = rotation;
 	processor().forceApplyChanges();
 }
 
@@ -116,4 +127,33 @@ secs::Entity ECSWorld::MakeAnimationEntity(std::shared_ptr<aether::graphics::Ani
 	AddAnimation(e, anim);
 	AddTransform(e, x, y, scale);
 	return e;
+}
+
+secs::Entity ECSWorld::MakePlayerBullet(float x, float y)
+{
+	auto e = processor().addEntity();
+	addComponent<SpriteComponent>(e).texture = aether::graphics::TextureRegion::Create("assets/Player/bullet.png");
+	AddTransform(e, x, y, 0.25f);
+	AddCollision(e, 6, 10, { 13.0f, 10.0f });
+	AddBullet(e, Faction::Player, 1);
+	addComponent<MovementComponent>(e).axis = { 0.0f, -1.0f };
+	return e;
+}
+
+secs::Entity ECSWorld::MakeEnemyBullet(float x, float y)
+{
+	auto e = processor().addEntity();
+	addComponent<SpriteComponent>(e).texture = aether::graphics::TextureRegion::Create("assets/Enemy/bullet_enemy.png");
+	AddTransform(e, x, y, 0.25f, 180.0f);
+	AddCollision(e, 6, 10, { 13.0f, 10.0f });
+	AddBullet(e, Faction::Player, 1);
+	addComponent<MovementComponent>(e).axis = { 0.0f, 1.0f };
+	return e;
+}
+
+void ECSWorld::AddBullet(secs::Entity e, Faction faction, int power)
+{
+	auto& bullet = addComponent<BulletComponent>(e);
+	bullet.faction = faction;
+	bullet.power = power;
 }

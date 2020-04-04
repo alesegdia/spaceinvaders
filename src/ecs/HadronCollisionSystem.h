@@ -124,6 +124,6 @@ private:
 
     hadron::collision::World m_physicsWorld;
 
-    bool enabled = true;
+    bool enabled = false;
 
 };
