@@ -20,4 +20,7 @@ private:
 	aether::graphics::TextData m_textData;
 	ECSWorld m_ecsWorld;
 
+	uint64_t m_spawnRate = 1e6;
+	uint64_t m_nextSpawn = 0;
+
 };

@@ -21,7 +21,8 @@ void GameplayScreen::show()
 	m_ecsWorld.pushSystem(std::make_shared<DieSystem>());
 
 	m_ecsWorld.MakeEnemyShip(0, 0);
-	m_ecsWorld.MakePlayerShip(0, 0);
+	m_ecsWorld.MakeEnemyShip(700, 0);
+	m_ecsWorld.MakePlayerShip(300, 0);
 	m_ecsWorld.MakeBlueEffect(0, 0);
 	m_ecsWorld.MakeRedEffect(100, 100);
 	m_ecsWorld.MakeGalaxyEffect(200, 200);
@@ -38,10 +39,17 @@ void GameplayScreen::hide()
 void GameplayScreen::update(uint64_t delta)
 {
 	m_ecsWorld.step(delta);
+	m_nextSpawn += delta;
+	if (m_nextSpawn >= m_spawnRate)
+	{
+		m_nextSpawn = 0;
+		m_ecsWorld.MakeEnemyShip(rand() % 700, -100, 2 + rand() % 3);
+	}
 }
 
 void GameplayScreen::render()
 {
 	aether::graphics::clear(0, 0, 0);
 	m_ecsWorld.render();
+	aether::graphics::draw_filled_rectangle(0, 600, 800, 800, aether::graphics::Color(0.1f, 0.1f, 0.1f));
 }

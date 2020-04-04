@@ -14,7 +14,7 @@ public:
 	ECSWorld();
 
 	secs::Entity MakePlayerShip(float x, float y);
-	secs::Entity MakeEnemyShip(float x, float y);
+	secs::Entity MakeEnemyShip(float x, float y, float ySpeed = 2.0f);
 
 	secs::Entity MakePlayerBullet(float x, float y);
 	secs::Entity MakeEnemyBullet(float x, float y);

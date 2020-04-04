@@ -26,7 +26,7 @@ namespace
 ECSWorld::ECSWorld()
 {
 	auto shipAnimTime = 0.05e6;
-	auto fxAnimTime = 0.05e6;
+	auto fxAnimTime = 0.025e6;
 
 	m_enemyAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Enemy/Enemy_animation/", 1, 8), shipAnimTime);
 	m_playerAnim = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Player/Animation/", 1, 8), shipAnimTime);
@@ -46,16 +46,24 @@ ECSWorld::ECSWorld()
 	m_normalFont.load("assets/default.ttf", 32);
 }
 
-secs::Entity ECSWorld::MakeEnemyShip(float x, float y)
+secs::Entity ECSWorld::MakeEnemyShip(float x, float y, float ySpeed)
 {
 	const auto& e = MakeAnimationEntity(m_enemyAnim, x, y, 0.2f);
-	AddShip(e, Faction::Enemy, 10);
+	AddShip(e, Faction::Enemy, 5);
 	AddCollision(e, 50, 50, { 26, 20 });
 	component<TransformComponent>(e).rotation = 180.0f;
 	AddShoot(e, 2.0e6, [this](secs::Entity e) {
 		auto& tc = component<TransformComponent>(e);
 		MakeEnemyBullet(32 + tc.position.x(), 70 + tc.position.y());
 	}, true);
+	auto& bullet = addComponent<BulletComponent>(e);
+	bullet.faction = Faction::Enemy;
+	bullet.power = 2;
+	addComponent<OnDeathActionComponent>(e).action = [this](secs::Entity e) {
+		auto& tc = component<TransformComponent>(e);
+		MakeGalaxyEffect(tc.position.x() - 70, tc.position.y() - 70);
+	};
+	addComponent<MovementComponent>(e).axis = { 0.0f, ySpeed };
 	return e;
 }
 
@@ -70,6 +78,7 @@ secs::Entity ECSWorld::MakePlayerShip(float x, float y)
 		auto& tc = component<TransformComponent>(e);
 		MakePlayerBullet(tc.position.x() + 33, tc.position.y());
 	});
+	addComponent<MovementComponent>(e).speed = { 5.0f, 3.0f };
 	return e;
 }
 
@@ -80,7 +89,7 @@ secs::Entity ECSWorld::MakeBlueEffect(float x, float y)
 
 secs::Entity ECSWorld::MakeGalaxyEffect(float x, float y)
 {
-	return MakeAnimationEntity(m_galaxyFX, x, y, 0.5f, rand() % 360);
+	return MakeAnimationEntity(m_galaxyFX, x, y, 1.0f, rand() % 360);
 }
 
 secs::Entity ECSWorld::MakeRedEffect(float x, float y)
@@ -112,7 +121,6 @@ void ECSWorld::AddShip(const secs::Entity& e, Faction faction, int maxHealth)
 {
 	addComponent<ShipComponent>(e).faction = faction;
 	addComponent<HealthComponent>(e).maxHealth = maxHealth;
-	addComponent<MovementComponent>(e);
 }
 
 void ECSWorld::AddAnimation(const secs::Entity& e, std::shared_ptr<aether::graphics::Animation> anim)

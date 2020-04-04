@@ -86,7 +86,7 @@ public:
     void handleCollision( const secs::Entity& e1, const secs::Entity& e2 )
     {
         secs::Entity out1, out2;
-        if( entitiesHaveComponents<ShipComponent, BulletComponent>(e1, e2, &out1, &out2) )
+        if (entitiesHaveComponents<ShipComponent, BulletComponent>(e1, e2, &out1, &out2))
         {
             auto& ship = component<ShipComponent>(out1);
             auto& bullet = component<BulletComponent>(out2);
@@ -94,16 +94,9 @@ public:
             {
                 component<HealthComponent>(out1).currentHealth -= bullet.power;
                 component<HealthComponent>(out2).currentHealth = 0;
-                if (ship.faction == Faction::Player)
-                {
-                    std::cout << "meh" << std::endl;
-                }
-                if (ship.faction == Faction::Enemy)
-                {
-                    std::cout << "zox" << std::endl;
-                }
             }
         }
+
     }
 
 private:

@@ -8,5 +8,5 @@
 
 int main(int argc, char** argv)
 {
-	return Game(800, 600).exec(argc, argv);
+	return Game(800, 800).exec(argc, argv);
 }
