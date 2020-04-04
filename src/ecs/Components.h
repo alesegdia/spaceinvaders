@@ -15,6 +15,7 @@ struct TransformComponent
 {
 	aether::math::Vec2f position;
 	float scale = 1.0f;
+	float rotation = 0.0f;
 };
 
 struct SpriteComponent
@@ -60,11 +61,6 @@ struct BulletComponent
 	int power;
 };
 
-struct AsteroidComponent
-{
-
-};
-
 struct DieComponent
 {
 
@@ -73,4 +69,28 @@ struct DieComponent
 struct OnDeathActionComponent
 {
 	std::function<void(const secs::Entity& e)> action;
+};
+
+struct MovementComponent
+{
+	aether::math::Vec2f axis = { 0.0f, 0.0f };
+	aether::math::Vec2f speed = { 1.0f, 1.0f };
+};
+
+struct TriggerComponent
+{
+
+};
+
+struct ShootComponent
+{
+	std::function<void(void)> shootCallback;
+	bool shootRequested;
+	float nextShootAvailable;
+	float shootingRate;
+};
+
+struct PlayerComponent
+{
+
 };

@@ -12,7 +12,7 @@ void RenderTextureSystem::render(const secs::Entity & e)
 	auto& transform = processor()->component<TransformComponent>(e);
 	if (sprite.texture.valid())
 	{
-		sprite.texture.draw(transform.position.x(), transform.position.y(), transform.scale, transform.scale);
+		sprite.texture.drawRotatedScaled(transform.position.x(), transform.position.y(), transform.scale, transform.scale, transform.rotation);
 	}
 }
 

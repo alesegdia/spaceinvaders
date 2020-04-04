@@ -73,8 +73,11 @@
     <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
     <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp" />
     <ClCompile Include="..\src\ecs\HealthSystem.cpp" />
+    <ClCompile Include="..\src\ecs\MovementSystem.cpp" />
+    <ClCompile Include="..\src\ecs\PlayerInputSystem.cpp" />
     <ClCompile Include="..\src\ecs\RenderTextSystem.cpp" />
     <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp" />
+    <ClCompile Include="..\src\ecs\ShootingSystem.cpp" />
     <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
@@ -152,8 +155,11 @@
     <ClInclude Include="..\src\ecs\ECSWorld.h" />
     <ClInclude Include="..\src\ecs\HadronCollisionSystem.h" />
     <ClInclude Include="..\src\ecs\HealthSystem.h" />
+    <ClInclude Include="..\src\ecs\MovementSystem.h" />
+    <ClInclude Include="..\src\ecs\PlayerInputSystem.h" />
     <ClInclude Include="..\src\ecs\RenderTextSystem.h" />
     <ClInclude Include="..\src\ecs\RenderTextureSystem.h" />
+    <ClInclude Include="..\src\ecs\ShootingSystem.h" />
     <ClInclude Include="..\src\ecs\StarsFieldSystem.h" />
     <ClInclude Include="..\src\ecs\Systems.h" />
     <ClInclude Include="..\src\Game.h" />

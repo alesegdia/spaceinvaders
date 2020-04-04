@@ -45,7 +45,7 @@ public:
             const auto& aabb = hcc.body->aabb();
             aether::graphics::draw_filled_rectangle(
                 aether::math::Rectf{ aabb.x, aabb.y, aabb.width, aabb.height },
-                aether::graphics::Color(1.0f, 0.0f, 1.0f));
+                aether::graphics::Color(1.0f, 0.0f, 1.0f, 0.5f));
         }
     }
 

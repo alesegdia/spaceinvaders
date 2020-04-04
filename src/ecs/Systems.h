@@ -7,3 +7,6 @@
 #include "DieSystem.h"
 #include "HadronCollisionSystem.h"
 #include "HealthSystem.h"
+#include "MovementSystem.h"
+#include "PlayerInputSystem.h"
+#include "ShootingSystem.h"

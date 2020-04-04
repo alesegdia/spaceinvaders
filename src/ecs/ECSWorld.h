@@ -24,11 +24,8 @@ public:
 private:
 
 	void AddCollision(const secs::Entity& e, float w, float h, aether::math::Vec2f offset = { 0, 0 });
-
 	void AddShip(const secs::Entity& e, Faction faction, int maxHealth);
-
 	void AddAnimation(const secs::Entity& e, std::shared_ptr<aether::graphics::Animation> anim);
-
 	void AddTransform(const secs::Entity& e, float x, float y, float scale = 1.0f);
 
 	secs::Entity MakeAnimationEntity(std::shared_ptr<aether::graphics::Animation> anim, float x, float y, float scale);

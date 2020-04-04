@@ -13,6 +13,9 @@
     <Filter Include="hadron">
       <UniqueIdentifier>{9b252ef9-4fa6-4a06-9e96-2d6657d22519}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game\ecs">
+      <UniqueIdentifier>{d615f783-5ef7-48a3-8116-2d31e0dd2b4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -138,18 +141,6 @@
     <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp">
       <Filter>secs</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ecs\RenderTextSystem.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ecs\AnimationSystem.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\screens\GameplayScreen.cpp">
       <Filter>game</Filter>
     </ClCompile>
@@ -186,14 +177,35 @@
     <ClCompile Include="..\module\hadron\src\lib\hadron\vec.cpp">
       <Filter>hadron</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp">
-      <Filter>game</Filter>
+    <ClCompile Include="..\src\ecs\AnimationSystem.cpp">
+      <Filter>game\ecs</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ecs\DieSystem.cpp">
-      <Filter>game</Filter>
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp">
+      <Filter>game\ecs</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ecs\HealthSystem.cpp">
-      <Filter>game</Filter>
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\PlayerInputSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\RenderTextSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\ShootingSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\MovementSystem.cpp">
+      <Filter>game\ecs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -308,13 +320,7 @@
     <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_locator.h">
       <Filter>aether</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ecs\Components.h">
-      <Filter>game</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ecs\ECSWorld.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ecs\Systems.h">
       <Filter>game</Filter>
     </ClInclude>
     <ClInclude Include="..\module\secs\src\lib\secs\bits.h">
@@ -365,18 +371,6 @@
     <ClInclude Include="..\module\aether\src\aether\graphics\sdl\sdl_texure.h">
       <Filter>aether</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ecs\RenderTextSystem.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ecs\RenderTextureSystem.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ecs\StarsFieldSystem.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ecs\AnimationSystem.h">
-      <Filter>game</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\screens\GameplayScreen.h">
       <Filter>game</Filter>
     </ClInclude>
@@ -419,14 +413,41 @@
     <ClInclude Include="..\module\hadron\src\lib\hadron\world.h">
       <Filter>hadron</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ecs\HadronCollisionSystem.h">
-      <Filter>game</Filter>
+    <ClInclude Include="..\src\ecs\AnimationSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\Components.h">
+      <Filter>game\ecs</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ecs\DieSystem.h">
-      <Filter>game</Filter>
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\HadronCollisionSystem.h">
+      <Filter>game\ecs</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ecs\HealthSystem.h">
-      <Filter>game</Filter>
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\PlayerInputSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\RenderTextSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\RenderTextureSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\ShootingSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\StarsFieldSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\Systems.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\MovementSystem.h">
+      <Filter>game\ecs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
