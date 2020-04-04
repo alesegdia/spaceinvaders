@@ -34,16 +34,21 @@ ECSWorld::ECSWorld()
 	m_blueFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Blue/1_", 0, 16), fxAnimTime);
 	m_blueFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
 
-	m_redFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Galaxy/galaxy_", 0, 16), fxAnimTime);
+	m_redFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Red/1_", 0, 16), fxAnimTime);
 	m_redFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
 
-	m_galaxyFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Red/1_", 0, 16), fxAnimTime);
+	m_galaxyFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Galaxy/galaxy_", 0, 16), fxAnimTime);
 	m_galaxyFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
 
 	m_playerBullet = aether::graphics::TextureRegion::Create("assets/Player/bullet.png");
 	m_enemyBullet = aether::graphics::TextureRegion::Create("assets/Enemy/bullet_enemy.png");
 
 	m_normalFont.load("assets/default.ttf", 32);
+
+	for (int i = 0; i < 4; i++)
+	{
+		m_asteroids[i] = aether::graphics::TextureRegion::Create("assets/Asteroids/asteroid" + std::to_string(i) + ".png");
+	}
 }
 
 secs::Entity ECSWorld::MakeEnemyShip(float x, float y, float ySpeed)
@@ -71,14 +76,13 @@ secs::Entity ECSWorld::MakePlayerShip(float x, float y)
 {
 	const auto& e = MakeAnimationEntity(m_playerAnim, x, y, 0.2f);
 	AddShip(e, Faction::Player, 10);
+	addComponent<MovementComponent>(e).speed = { 5.0f, 3.0f };
 	AddCollision(e, 80, 25, {10, 40});
-	component<MovementComponent>(e).speed = { 6.0f, 3.0f };
 	addComponent<PlayerComponent>(e);
 	AddShoot(e, 0.05e6, [this](secs::Entity e) {
 		auto& tc = component<TransformComponent>(e);
 		MakePlayerBullet(tc.position.x() + 33, tc.position.y());
 	});
-	addComponent<MovementComponent>(e).speed = { 5.0f, 3.0f };
 	return e;
 }
 
@@ -87,9 +91,9 @@ secs::Entity ECSWorld::MakeBlueEffect(float x, float y)
 	return MakeAnimationEntity(m_blueFX, x, y, 0.5f, rand() % 360);
 }
 
-secs::Entity ECSWorld::MakeGalaxyEffect(float x, float y)
+secs::Entity ECSWorld::MakeGalaxyEffect(float x, float y, float scale)
 {
-	return MakeAnimationEntity(m_galaxyFX, x, y, 1.0f, rand() % 360);
+	return MakeAnimationEntity(m_galaxyFX, x, y, scale, rand() % 360);
 }
 
 secs::Entity ECSWorld::MakeRedEffect(float x, float y)
@@ -192,4 +196,38 @@ void ECSWorld::AddShoot(secs::Entity e, float rate, std::function<void(secs::Ent
 	sc.nextShootAvailable = 0.0f;
 	sc.shootCallback = cb;
 	sc.shootRequested = shootRequested;
+}
+
+
+secs::Entity ECSWorld::MakeAsteroid(float x, float y)
+{
+	auto e = MakeAnimationEntity(m_galaxyFX, x, y, 2.0f, rand() % 360);
+	addComponent<OnDeathActionComponent>(e).action = [this] (const secs::Entity& e) {
+		auto asteroid = processor().addEntity();
+		auto& tc = component<TransformComponent>(e);
+		auto& sc = addComponent<SpriteComponent>(asteroid);
+		sc.texture = m_asteroids[rand() % 4];
+		sc.drawScaledCentered = true;
+		AddTransform(asteroid, tc.position.x() + 250, tc.position.y() + 250, 0.2f, 0.0f);
+		auto& ac = addComponent<AsteroidComponent>(asteroid);
+		ac.endScale = 0.25f + (rand() % 10) / 100.0f;
+		ac.rotationSpeed = (5 - rand() % 10) / 50000.0f;
+		AddCollision(asteroid, 90, 90, { -45, -45 });
+		addComponent<ShipComponent>(asteroid);
+		addComponent<HealthComponent>(asteroid).maxHealth = 10;
+		addComponent<OnDeathActionComponent>(asteroid).action = [this](const secs::Entity& a) {
+			auto& tc = component<TransformComponent>(a);
+			for (int i = 0; i < 10; i++)
+			{
+				int drandom = 50;
+				float dx, dy;
+				dx = 55.0f - drandom + rand() % drandom * 2;
+				dy = 50.0f - drandom + rand() % drandom * 2;
+				MakeGalaxyEffect(
+					tc.position.x() - dx,
+					tc.position.y() - dy, 0.5f);
+			}
+		};
+	};
+	return e;
 }

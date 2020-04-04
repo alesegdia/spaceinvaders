@@ -73,6 +73,7 @@
     <ClCompile Include="..\src\ecs\DestroyOnExitScreen.cpp" />
     <ClCompile Include="..\src\ecs\DieSystem.cpp" />
     <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
+    <ClCompile Include="..\src\ecs\GrowOnSpawnSystem.cpp" />
     <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp" />
     <ClCompile Include="..\src\ecs\HealthSystem.cpp" />
     <ClCompile Include="..\src\ecs\MovementSystem.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="..\src\ecs\DestroyOnExitScreen.h" />
     <ClInclude Include="..\src\ecs\DieSystem.h" />
     <ClInclude Include="..\src\ecs\ECSWorld.h" />
+    <ClInclude Include="..\src\ecs\GrowOnSpawnSystem.h" />
     <ClInclude Include="..\src\ecs\HadronCollisionSystem.h" />
     <ClInclude Include="..\src\ecs\HealthSystem.h" />
     <ClInclude Include="..\src\ecs\MovementSystem.h" />

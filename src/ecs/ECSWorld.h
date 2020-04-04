@@ -20,8 +20,10 @@ public:
 	secs::Entity MakeEnemyBullet(float x, float y);
 
 	secs::Entity MakeBlueEffect(float x, float y);
-	secs::Entity MakeGalaxyEffect(float x, float y);
+	secs::Entity MakeGalaxyEffect(float x, float y, float scale = 1.0f);
 	secs::Entity MakeRedEffect(float x, float y);
+
+	secs::Entity MakeAsteroid(float x, float y);
 
 	secs::Entity MakeText(const std::string& text, float x, float y);
 
@@ -44,5 +46,6 @@ private:
 	std::shared_ptr<aether::graphics::Animation> m_redFX;
 	aether::graphics::TextureRegion m_playerBullet;
 	aether::graphics::TextureRegion m_enemyBullet;
+	aether::graphics::TextureRegion m_asteroids[4];
 
 };

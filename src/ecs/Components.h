@@ -21,6 +21,7 @@ struct TransformComponent
 struct SpriteComponent
 {
 	aether::graphics::TextureRegion texture;
+	bool drawScaledCentered = false;
 };
 
 struct TextComponent
@@ -95,3 +96,12 @@ struct PlayerComponent
 {
 
 };
+
+struct AsteroidComponent
+{
+	float startScale = 0.0f;
+	float endScale = 0.25f;
+	uint64_t scalingTime = 500000;
+	float rotationSpeed = 0.0001f;
+};
+

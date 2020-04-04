@@ -12,3 +12,4 @@
 #include "ShootingSystem.h"
 #include "ConfineInScreenSystem.h"
 #include "DestroyOnExitScreen.h"
+#include "GrowOnSpawnSystem.h"

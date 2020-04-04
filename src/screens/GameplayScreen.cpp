@@ -19,16 +19,16 @@ void GameplayScreen::show()
 	m_ecsWorld.pushSystem(std::make_shared<DestroyOnExitScreen>());
 	m_ecsWorld.pushSystem(std::make_shared<HealthSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<DieSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<AsteroidSystem>());
 
-	m_ecsWorld.MakeEnemyShip(0, 0);
-	m_ecsWorld.MakeEnemyShip(700, 0);
-	m_ecsWorld.MakePlayerShip(300, 0);
-	m_ecsWorld.MakeBlueEffect(0, 0);
-	m_ecsWorld.MakeRedEffect(100, 100);
-	m_ecsWorld.MakeGalaxyEffect(200, 200);
-	m_ecsWorld.MakeEnemyBullet(200, 200);
-	m_ecsWorld.MakePlayerBullet(200, 200);
+	m_ecsWorld.MakePlayerShip(350, 600);
+
 	m_ecsWorld.MakeText("Space Invaders", 0, 0);
+	
+	for (int i = 0; i < 4; i++)
+	{
+		m_ecsWorld.MakeAsteroid(i * 200 - 150, 100);
+	}
 }
 
 void GameplayScreen::hide()
