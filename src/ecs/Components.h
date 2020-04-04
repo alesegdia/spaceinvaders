@@ -84,7 +84,7 @@ struct TriggerComponent
 
 struct ShootComponent
 {
-	std::function<void(void)> shootCallback;
+	std::function<void(secs::Entity)> shootCallback;
 	bool shootRequested;
 	float nextShootAvailable;
 	float shootingRate;

@@ -10,7 +10,7 @@ void ShootingSystem::process(double delta, const secs::Entity& e, ShootComponent
 
 	if (sc.shootRequested && sc.nextShootAvailable <= 0.0f )
 	{
-		sc.shootCallback();
+		sc.shootCallback(e);
 		sc.nextShootAvailable = sc.shootingRate;
 	}
 }

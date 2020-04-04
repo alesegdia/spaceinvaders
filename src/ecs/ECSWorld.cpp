@@ -39,7 +39,10 @@ ECSWorld::ECSWorld()
 
 	m_galaxyFX = std::make_shared<aether::graphics::Animation>(GetFrames("assets/Effects/Red/1_", 0, 16), fxAnimTime);
 	m_galaxyFX->setWrapMode(aether::graphics::Animation::WrapMode::Once);
-	
+
+	m_playerBullet = aether::graphics::TextureRegion::Create("assets/Player/bullet.png");
+	m_enemyBullet = aether::graphics::TextureRegion::Create("assets/Enemy/bullet_enemy.png");
+
 	m_normalFont.load("assets/default.ttf", 32);
 }
 
@@ -49,6 +52,10 @@ secs::Entity ECSWorld::MakeEnemyShip(float x, float y)
 	AddShip(e, Faction::Enemy, 10);
 	AddCollision(e, 50, 50, { 26, 20 });
 	component<TransformComponent>(e).rotation = 180.0f;
+	AddShoot(e, 0.5e6, [this](secs::Entity e) {
+		auto& tc = component<TransformComponent>(e);
+		MakeEnemyBullet(tc.position.x(), tc.position.y());
+	});
 	return e;
 }
 
@@ -57,9 +64,12 @@ secs::Entity ECSWorld::MakePlayerShip(float x, float y)
 	const auto& e = MakeAnimationEntity(m_playerAnim, x, y, 0.2f);
 	AddShip(e, Faction::Enemy, 10);
 	AddCollision(e, 80, 25, {10, 40});
-	component<MovementComponent>(e).speed = { 2.0f, 1.0f };
+	component<MovementComponent>(e).speed = { 6.0f, 3.0f };
 	addComponent<PlayerComponent>(e);
-	addComponent<ShootComponent>(e);
+	AddShoot(e, 0.05e6, [this](secs::Entity e) {
+		auto& tc = component<TransformComponent>(e);
+		MakePlayerBullet(tc.position.x() + 33, tc.position.y());
+	});
 	return e;
 }
 
@@ -132,18 +142,18 @@ secs::Entity ECSWorld::MakeAnimationEntity(std::shared_ptr<aether::graphics::Ani
 secs::Entity ECSWorld::MakePlayerBullet(float x, float y)
 {
 	auto e = processor().addEntity();
-	addComponent<SpriteComponent>(e).texture = aether::graphics::TextureRegion::Create("assets/Player/bullet.png");
+	addComponent<SpriteComponent>(e).texture = m_playerBullet;
 	AddTransform(e, x, y, 0.25f);
 	AddCollision(e, 6, 10, { 13.0f, 10.0f });
 	AddBullet(e, Faction::Player, 1);
-	addComponent<MovementComponent>(e).axis = { 0.0f, -1.0f };
+	addComponent<MovementComponent>(e).axis = { 0.0f, -10.0f };
 	return e;
 }
 
 secs::Entity ECSWorld::MakeEnemyBullet(float x, float y)
 {
 	auto e = processor().addEntity();
-	addComponent<SpriteComponent>(e).texture = aether::graphics::TextureRegion::Create("assets/Enemy/bullet_enemy.png");
+	addComponent<SpriteComponent>(e).texture = m_enemyBullet;
 	AddTransform(e, x, y, 0.25f, 180.0f);
 	AddCollision(e, 6, 10, { 13.0f, 10.0f });
 	AddBullet(e, Faction::Player, 1);
@@ -156,4 +166,12 @@ void ECSWorld::AddBullet(secs::Entity e, Faction faction, int power)
 	auto& bullet = addComponent<BulletComponent>(e);
 	bullet.faction = faction;
 	bullet.power = power;
+}
+
+void ECSWorld::AddShoot(secs::Entity e, float rate, std::function<void(secs::Entity)> cb)
+{
+	auto& sc = addComponent<ShootComponent>(e);
+	sc.shootingRate = rate;
+	sc.nextShootAvailable = 0.0f;
+	sc.shootCallback = cb;
 }

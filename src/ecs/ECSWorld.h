@@ -32,6 +32,7 @@ private:
 	void AddAnimation(const secs::Entity& e, std::shared_ptr<aether::graphics::Animation> anim);
 	void AddTransform(const secs::Entity& e, float x, float y, float scale = 1.0f, float rotation = 1.0f);
 	void AddBullet(secs::Entity e, Faction faction, int power);
+	void AddShoot(secs::Entity e, float rate, std::function<void(secs::Entity)> cb);
 
 	secs::Entity MakeAnimationEntity(std::shared_ptr<aether::graphics::Animation> anim, float x, float y, float scale);
 
@@ -41,7 +42,7 @@ private:
 	std::shared_ptr<aether::graphics::Animation> m_blueFX;
 	std::shared_ptr<aether::graphics::Animation> m_galaxyFX;
 	std::shared_ptr<aether::graphics::Animation> m_redFX;
-	aether::graphics::Texture m_playerBullet;
-	aether::graphics::Texture m_enemyBullet;
+	aether::graphics::TextureRegion m_playerBullet;
+	aether::graphics::TextureRegion m_enemyBullet;
 
 };
