@@ -69,14 +69,14 @@ public:
         printf("cleanup\n"); fflush(0);
     }
 
-    void onCollisionEnter(hadron::Body &b1, hadron::Body &b2)
+    void onCollisionEnter(hadron::Body &b1, hadron::Body &b2, hadron::CollisionResult cr) override
     {
         auto e1 = getEntityFromBody(b1);
         auto e2 = getEntityFromBody(b2);
         handleCollision( e1, e2 );
     }
 
-    void onCollisionExit(hadron::Body &b1, hadron::Body &b2)
+    void onCollisionExit(hadron::Body &b1, hadron::Body &b2) override
     {
         SECS_UNUSED(b1);
         SECS_UNUSED(b2);

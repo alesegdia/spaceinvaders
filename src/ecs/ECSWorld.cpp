@@ -62,7 +62,7 @@ secs::Entity ECSWorld::MakeEnemyShip(float x, float y)
 secs::Entity ECSWorld::MakePlayerShip(float x, float y)
 {
 	const auto& e = MakeAnimationEntity(m_playerAnim, x, y, 0.2f);
-	AddShip(e, Faction::Enemy, 10);
+	AddShip(e, Faction::Player, 10);
 	AddCollision(e, 80, 25, {10, 40});
 	component<MovementComponent>(e).speed = { 6.0f, 3.0f };
 	addComponent<PlayerComponent>(e);
@@ -146,7 +146,7 @@ secs::Entity ECSWorld::MakePlayerBullet(float x, float y)
 	AddTransform(e, x, y, 0.25f);
 	AddCollision(e, 6, 10, { 13.0f, 10.0f });
 	AddBullet(e, Faction::Player, 1);
-	addComponent<MovementComponent>(e).axis = { 0.0f, -10.0f };
+	addComponent<MovementComponent>(e).axis = { 0.0f, -5.0f };
 	return e;
 }
 
@@ -166,6 +166,7 @@ void ECSWorld::AddBullet(secs::Entity e, Faction faction, int power)
 	auto& bullet = addComponent<BulletComponent>(e);
 	bullet.faction = faction;
 	bullet.power = power;
+	addComponent<HealthComponent>(e).maxHealth = 1;
 }
 
 void ECSWorld::AddShoot(secs::Entity e, float rate, std::function<void(secs::Entity)> cb)

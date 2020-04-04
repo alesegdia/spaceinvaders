@@ -10,11 +10,12 @@ void GameplayScreen::show()
 	m_ecsWorld.pushSystem(std::make_shared<AnimationSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<StarFieldSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<RenderTextureSystem>());
-	m_ecsWorld.pushSystem(std::make_shared<DieSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<HealthSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<DieSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<PlayerInputSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<ShootingSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<MovementSystem>());
+	m_ecsWorld.pushSystem(std::make_shared<ConfineInScreenSystem>());
 	m_ecsWorld.pushSystem(std::make_shared<HadronCollisionSystem>());
 
 	m_ecsWorld.MakeEnemyShip(0, 0);

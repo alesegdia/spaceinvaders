@@ -69,6 +69,7 @@
     <ClCompile Include="..\module\secs\src\lib\secs\system.cpp" />
     <ClCompile Include="..\module\secs\src\lib\secs\systemmanager.cpp" />
     <ClCompile Include="..\src\ecs\AnimationSystem.cpp" />
+    <ClCompile Include="..\src\ecs\ConfineInScreenSystem.cpp" />
     <ClCompile Include="..\src\ecs\DieSystem.cpp" />
     <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
     <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="..\module\secs\src\lib\secs\systemmanager.h" />
     <ClInclude Include="..\src\ecs\AnimationSystem.h" />
     <ClInclude Include="..\src\ecs\Components.h" />
+    <ClInclude Include="..\src\ecs\ConfineInScreenSystem.h" />
     <ClInclude Include="..\src\ecs\DieSystem.h" />
     <ClInclude Include="..\src\ecs\ECSWorld.h" />
     <ClInclude Include="..\src\ecs\HadronCollisionSystem.h" />

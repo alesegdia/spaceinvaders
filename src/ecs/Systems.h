@@ -10,3 +10,4 @@
 #include "MovementSystem.h"
 #include "PlayerInputSystem.h"
 #include "ShootingSystem.h"
+#include "ConfineInScreenSystem.h"
