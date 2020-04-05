@@ -92,9 +92,42 @@ public:
             auto& bullet = component<BulletComponent>(out2);
             if (ship.faction != bullet.faction && !hasComponent<DieComponent>(out2))
             {
-                component<HealthComponent>(out1).currentHealth -= bullet.power;
+                component<HealthComponent>(out1).currentShield -= bullet.power;
                 component<HealthComponent>(out2).currentHealth = 0;
+                if (ship.faction == Faction::Player && component<HealthComponent>(out1).currentShield < 0)
+                {
+                    auto& sc = component<ShootComponent>(out1);
+                    sc.shootingRate += 0.1e6;
+                    if (sc.shootingRate > 0.5e6)
+                    {
+                        sc.shootingRate = 0.5e6;
+                    }
+                }
             }
+        }
+
+        if (entitiesHaveComponents<PlayerComponent, PowerupComponent>(e1, e2, &out1, &out2))
+        {
+            auto& powerup = component<PowerupComponent>(out2);
+            auto& hc = component<HealthComponent>(out1);
+            auto& sc = component<ShootComponent>(out1);
+            switch (powerup.type)
+            {
+            case PowerupComponent::Type::Health:
+                hc.currentHealth = std::min(hc.currentHealth + 1, hc.maxHealth);
+                break;
+            case PowerupComponent::Type::Shield:
+                hc.currentShield = std::min(hc.currentShield + 1, hc.maxShield);
+                break;
+            case PowerupComponent::Type::Power:
+                sc.shootingRate -= 0.1e6;
+                if (sc.shootingRate < 0.1e6)
+                {
+                    sc.shootingRate = 0.1e6;
+                }
+                break;
+            }
+            processor()->removeEntity(out2);
         }
 
     }

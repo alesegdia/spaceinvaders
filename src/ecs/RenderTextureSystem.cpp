@@ -4,6 +4,7 @@
 RenderTextureSystem::RenderTextureSystem()
 {
 	setStepConfiguration(false, true);
+	setNeededComponents<SpriteComponent, TransformComponent>();
 }
 
 void RenderTextureSystem::render(const secs::Entity & e)
@@ -12,17 +13,12 @@ void RenderTextureSystem::render(const secs::Entity & e)
 	auto& transform = processor()->component<TransformComponent>(e);
 	if (sprite.texture.valid())
 	{
-		if(sprite.drawScaledCentered)
-		{
-			std::cout << sprite.drawScaledCentered << std::endl;
-		}
 		if (sprite.drawScaledCentered)
 		{
 			sprite.texture.drawRotatedScaledCentered(
 				transform.position.x(), transform.position.y(),
 				transform.scale, transform.scale,
 				transform.rotation);
-			std::cout << "draw scaled centered" << std::endl;
 		}
 		else
 		{

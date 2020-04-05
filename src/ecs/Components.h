@@ -50,6 +50,9 @@ struct HealthComponent
 {
 	int currentHealth;
 	int maxHealth;
+	float currentShield;
+	float maxShield = 0;
+	float shieldRecoverPerSecond = 0.0000005f;
 };
 
 struct ShipComponent
@@ -105,3 +108,35 @@ struct AsteroidComponent
 	float rotationSpeed = 0.0001f;
 };
 
+struct PlayerSeekerEnemyBehaviour
+{
+
+};
+
+struct SinusoidalEnemyBehaviour
+{
+	float amplitude;
+	float period;
+	float time = 0.0f;
+	float offset;
+};
+
+struct StandAtPointEnemyBehaviour
+{
+	aether::math::Vec2f fromPosition;
+	aether::math::Vec2f pointToStand;
+	uint64_t timeTraveling = 1000000;
+	uint64_t timer ;
+};
+
+struct PowerupComponent
+{
+	enum class Type
+	{
+		Health,
+		Shield,
+		Power
+	};
+
+	Type type;
+};

@@ -216,6 +216,21 @@
     <ClCompile Include="..\src\ecs\GrowOnSpawnSystem.cpp">
       <Filter>game\ecs</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ecs\ECSGUIWorld.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\SinusoidalEnemyBehaviourSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\PlayerSeekerBehaviourSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ecs\StandAtPointBehaviourSystem.cpp">
+      <Filter>game\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\screens\MenuScreen.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\module\aether\src\aether\audio\playmode.h">
@@ -466,6 +481,21 @@
     </ClInclude>
     <ClInclude Include="..\src\ecs\GrowOnSpawnSystem.h">
       <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\ECSGUIWorld.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\SinusoidalEnemyBehaviourSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\PlayerSeekerBehaviourSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ecs\StandAtPointBehaviourSystem.h">
+      <Filter>game\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\screens\MenuScreen.h">
+      <Filter>game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

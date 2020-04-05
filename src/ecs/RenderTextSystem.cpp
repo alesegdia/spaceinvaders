@@ -11,6 +11,7 @@ void RenderTextSystem::process(double delta, const secs::Entity & e, TransformCo
 	if (text.text != text.prevText)
 	{
 		text.prevText = text.text;
+		text.textData.texture.destroy();
 		text.textData = text.font.createTextTexture(text.text.c_str(), text.color);
 	}
 }

@@ -13,3 +13,6 @@
 #include "ConfineInScreenSystem.h"
 #include "DestroyOnExitScreen.h"
 #include "GrowOnSpawnSystem.h"
+#include "PlayerSeekerBehaviourSystem.h"
+#include "StandAtPointBehaviourSystem.h"
+#include "SinusoidalEnemyBehaviourSystem.h"

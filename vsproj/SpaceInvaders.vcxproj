@@ -72,19 +72,24 @@
     <ClCompile Include="..\src\ecs\ConfineInScreenSystem.cpp" />
     <ClCompile Include="..\src\ecs\DestroyOnExitScreen.cpp" />
     <ClCompile Include="..\src\ecs\DieSystem.cpp" />
+    <ClCompile Include="..\src\ecs\ECSGUIWorld.cpp" />
     <ClCompile Include="..\src\ecs\ECSWorld.cpp" />
     <ClCompile Include="..\src\ecs\GrowOnSpawnSystem.cpp" />
     <ClCompile Include="..\src\ecs\HadronCollisionSystem.cpp" />
     <ClCompile Include="..\src\ecs\HealthSystem.cpp" />
     <ClCompile Include="..\src\ecs\MovementSystem.cpp" />
     <ClCompile Include="..\src\ecs\PlayerInputSystem.cpp" />
+    <ClCompile Include="..\src\ecs\PlayerSeekerBehaviourSystem.cpp" />
     <ClCompile Include="..\src\ecs\RenderTextSystem.cpp" />
     <ClCompile Include="..\src\ecs\RenderTextureSystem.cpp" />
     <ClCompile Include="..\src\ecs\ShootingSystem.cpp" />
+    <ClCompile Include="..\src\ecs\SinusoidalEnemyBehaviourSystem.cpp" />
+    <ClCompile Include="..\src\ecs\StandAtPointBehaviourSystem.cpp" />
     <ClCompile Include="..\src\ecs\StarsFieldSystem.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\screens\GameplayScreen.cpp" />
+    <ClCompile Include="..\src\screens\MenuScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\module\aether\src\aether\aether.h" />
@@ -157,19 +162,24 @@
     <ClInclude Include="..\src\ecs\ConfineInScreenSystem.h" />
     <ClInclude Include="..\src\ecs\DestroyOnExitScreen.h" />
     <ClInclude Include="..\src\ecs\DieSystem.h" />
+    <ClInclude Include="..\src\ecs\ECSGUIWorld.h" />
     <ClInclude Include="..\src\ecs\ECSWorld.h" />
     <ClInclude Include="..\src\ecs\GrowOnSpawnSystem.h" />
     <ClInclude Include="..\src\ecs\HadronCollisionSystem.h" />
     <ClInclude Include="..\src\ecs\HealthSystem.h" />
     <ClInclude Include="..\src\ecs\MovementSystem.h" />
     <ClInclude Include="..\src\ecs\PlayerInputSystem.h" />
+    <ClInclude Include="..\src\ecs\PlayerSeekerBehaviourSystem.h" />
     <ClInclude Include="..\src\ecs\RenderTextSystem.h" />
     <ClInclude Include="..\src\ecs\RenderTextureSystem.h" />
     <ClInclude Include="..\src\ecs\ShootingSystem.h" />
+    <ClInclude Include="..\src\ecs\SinusoidalEnemyBehaviourSystem.h" />
+    <ClInclude Include="..\src\ecs\StandAtPointBehaviourSystem.h" />
     <ClInclude Include="..\src\ecs\StarsFieldSystem.h" />
     <ClInclude Include="..\src\ecs\Systems.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\screens\GameplayScreen.h" />
+    <ClInclude Include="..\src\screens\MenuScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\module\aether\src\aether\json11.pc.in" />
