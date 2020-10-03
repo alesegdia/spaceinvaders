@@ -1,23 +1,20 @@
 AETHER_DIR = path.getabsolute("../module/aether")
-print(AETHER_DIR)
 
 dofile(path.join(AETHER_DIR, "scripts/aether-project.lua"))
 
-solution "game"
+solution "spaceinvaders"
+	startproject("spaceinvaders")
 	location "../build/"
 	configurations { "debug", "release" }
 	platforms { "x32", "x64" }
 	
 	dofile(path.join(AETHER_DIR, "scripts/aether-build.lua"))
 
-	newAetherExample("game")
-		debugdir (AETHER_DIR)
+	aetherProject("spaceinvaders-game")
+		debugdir ("..")
+		targetdir ("../build")
 		files {
 			"../src/**.cpp",
 			"../src/**.h"
-		}
-		flags {
-			"Symbols",
-			"StaticRuntime"
 		}
 
