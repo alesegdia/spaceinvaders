@@ -1,7 +1,8 @@
 AETHER_DIR = path.getabsolute("../module/aether")
 
-dofile(path.join(AETHER_DIR, "scripts/util/aether-project.lua"))
-dofile(path.join(AETHER_DIR, "scripts/util/common-lib-setup.lua"))
+dofile(path.join(AETHER_DIR, "scripts/util/util.lua"))
+
+aetherConfig()
 
 solution "spaceinvaders"
 	startproject("spaceinvaders")
@@ -9,10 +10,8 @@ solution "spaceinvaders"
 	configurations { "debug", "release" }
 	platforms { "x32", "x64" }
 	
-	dofile(path.join(AETHER_DIR, "scripts/aether-common.lua"))
-	dofile(path.join(AETHER_DIR, "scripts/backends/sdl-backend.lua"))
-	dofile(path.join(AETHER_DIR, "scripts/aether-lib.lua"))
-
+	aetherBuild()
+	
 	aetherProject("spaceinvaders-game")
 		debugdir ("..")
 		targetdir ("../build")
