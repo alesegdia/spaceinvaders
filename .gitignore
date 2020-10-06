@@ -1,5 +1,4 @@
 /build/
-/vsproj/.vs
-/vsproj/Debug
-/vsproj/*.user
-/out/
+*.exp
+*.lib
+*.pdb

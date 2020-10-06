@@ -5,13 +5,13 @@ dofile(path.join(AETHER_DIR, "scripts/util/util.lua"))
 aetherConfig()
 
 solution "spaceinvaders"
-	startproject("spaceinvaders")
+	startproject("spaceinvaders-game")
 	location "../build/"
 	configurations { "debug", "release" }
 	platforms { "x32", "x64" }
 	
 	aetherBuild()
-	
+
 	aetherProject("spaceinvaders-game")
 		debugdir ("..")
 		targetdir ("../build")
